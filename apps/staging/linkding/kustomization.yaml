@@ -2,4 +2,4 @@ apiVersion: kustomize.config.fluxcd.io/v1
 kind: Kustomization
 namespace: linkding
 resources:
-	- ../../base/linkding/
+  - ../../base/linkding/
