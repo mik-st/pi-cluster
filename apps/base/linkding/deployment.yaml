@@ -20,12 +20,12 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
-            # command: ["/bin/sh", "-c"]
-            #args:
-            #- |
-            #  echo "Running additional command..."
-            #  export LD_SUPERUSER_NAME=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['user'])")
-            #  export LD_SUPERUSER_PASSWORD=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['pass'])")
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Running additional command..."
+              export LD_SUPERUSER_NAME=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['user'])")
+              export LD_SUPERUSER_PASSWORD=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['pass'])")
           ports:
             - containerPort: 9090
 
