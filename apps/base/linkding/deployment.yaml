@@ -24,8 +24,8 @@ spec:
           args:
             - |
               echo "Running additional command..."
-              export USER=$(jq -r '.user' ~/creds/creds.json)
-              export PASS=$(jq -r '.pass' ~/creds/creds.json)
+              export LD_SUPERUSER_NAME=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['user'])")
+              export LD_SUPERUSER_PASSWORD=$(python3 -c "import json; print(json.load(open('~/creds/creds.json'))['pass'])")
           ports:
             - containerPort: 9090
 
