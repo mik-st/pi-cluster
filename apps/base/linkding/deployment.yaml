@@ -43,5 +43,5 @@ spec:
           persistentVolumeClaim:
             claimName: linkding-data-pvc
         - name: creds
-           secret:
+          secret:
              secretName: linkding-credentials-secret
