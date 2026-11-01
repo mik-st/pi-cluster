@@ -36,7 +36,7 @@ spec:
             - name: linkding-data
               mountPath: /etc/linkding/datai
             - name: creds
-              mountPath: ~/creds
+              mountPath: /etc/linkding/creds
               readOnly: true
       volumes:
         - name: linkding-data
