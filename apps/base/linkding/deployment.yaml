@@ -20,6 +20,12 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Running additional command..."
+              export USER=$(jq -r '.user' ~/creds/creds.json)
+              export PASS=$(jq -r '.pass' ~/creds/creds.json)
           ports:
             - containerPort: 9090
 
@@ -28,8 +34,14 @@ spec:
 
           volumeMounts:
             - name: linkding-data
-              mountPath: /etc/linkding/data
+              mountPath: /etc/linkding/datai
+            - name: creds
+              mountPath: ~/creds
+              readOnly: true 
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
             claimName: linkding-data-pvc
+         - name: creds
+           secret:
+             secretName: tunnel-credentials
