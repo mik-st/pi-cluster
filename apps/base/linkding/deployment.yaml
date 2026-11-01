@@ -37,11 +37,11 @@ spec:
               mountPath: /etc/linkding/datai
             - name: creds
               mountPath: ~/creds
-              readOnly: true 
+              readOnly: true
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
             claimName: linkding-data-pvc
          - name: creds
            secret:
-             secretName: tunnel-credentials
+             secretName: linkding-credentials-secret
