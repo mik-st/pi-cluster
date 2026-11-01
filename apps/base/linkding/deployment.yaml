@@ -26,9 +26,10 @@ spec:
                 command:
                     - /bin/sh
                     - -c
-                    - "echo 'My additional command'"
-                    - export LD_SUPERUSER_NAME=$(python3 -c "import json; print(json.load(open('/etc/linkding/creds/creds.json'))['name'])")
-                    - export LD_SUPERUSER_PASSWORD=$(python3 -c "import json; print(json.load(open('/etc/linkding/creds/creds.json'))['pass'])")
+                    - |
+                      "echo 'My additional command'"
+                      export LD_SUPERUSER_NAME=$(python3 -c "import json; print(json.load(open('/etc/linkding/creds/creds.json'))['name'])")
+                       export LD_SUPERUSER_PASSWORD=$(python3 -c "import json; print(json.load(open('/etc/linkding/creds/creds.json'))['pass'])")
           ports:
             - containerPort: 9090
 
